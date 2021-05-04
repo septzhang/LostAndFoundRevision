@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>发表留言</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+   <link rel="stylesheet" href="asserts/css/base.css" th:herf="@{/asserts/css/base.css}">
+   <link rel="stylesheet" href="asserts/css/vendor.css" th:herf="@{/asserts/css/vendor.css}">
+   <link rel="stylesheet" href="asserts/css/main.css" th:herf="@{/asserts/css/main.css}">
+   
+    <!-- script
+    ================================================== -->
+    <script src="asserts/js/modernizr.js" th:src="@{/asserts/js/modernizr.js}"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" th:herf="@{/apple-touch-icon.png}">
+    <link rel="icon" type="asserts/image/png" sizes="32x32" href="favicon-32x32.png" th:herf="@{/favicon-32x32.png}" >
+    <link rel="icon" type="asserts/image/png" sizes="16x16" href="favicon-16x16.png" th:herf="@{/favicon-16x16.png}">
+    <link rel="manifest" href="site.webmanifest" th:herf="@{/site.webmanifest}">
+	
+</head>
+
+<body class="ss-bg-white">
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div id="top" class="s-wrap site-wrapper">
+
+        <!-- site header
+        ================================================== -->
+        <header class="s-header">
+        
+            <div class="header__top">
+                <div class="header__logo">
+                    <a class="site-logo" href="index.html">
+                        <img src="asserts/images/logo.svg" th:src="@{asserts/images/logo.svg}" alt="Homepage">
+                    </a>
+                </div>
+            </div> <!-- end header__top -->
+        
+            <nav class="header__nav-wrap" th:fragment="menu">
+        
+                <ul class="header__nav">
+                    <li class="current"><a href="index.html" th:herf="@{/index.html}" title="">主页</a></li>
+        			<li class="current"><a href="listA.html" th:herf="@{/listA.html}" title="">失物信息</a></li>
+        			<li class="current"><a href="listB.html" th:herf="@{/listB.html}" title="">招领信息</a></li>
+        			
+                    <li class="has-children" th:if="${user.getUserPosition()}">
+                        <a href="#0" title="">用户</a>
+                        <ul class="sub-menu">
+                        <li><a href="listUser.html" th:href="@{/listUser.html}">查看用户</a></li>
+                        <li><a href="addUser.html" th:href="@{/addUser.html}">添加用户</a></li>
+                        </ul>
+                    </li>
+        			<li class="has-children">
+        			    <a href="#0" title="">信息</a>
+        			    <ul class="sub-menu">
+        			    <li><a href="addGoods.html" th:href="@{/addGoods.html}">发布信息</a></li>
+        			    <li><a href="listMyGoods.html" th:href="@{/listMyGoods.html}">我的发布</a></li>
+        			    </ul>
+        			</li>
+        			<li class="has-children">
+        			    <a href="#0" title="">留言板</a>
+        			    <ul class="sub-menu">
+        			    <li><a href="listContact.html" th:href="@{/listContact.html}">查看留言板</a></li>
+        			    <li><a href="addContact.html" th:href="@{/addContact.html}">填写留言</a></li>
+        			    </ul>
+        			</li>
+        			<li class="has-children">
+        			    <a href="#0" title="">账号</a>
+        			    <ul class="sub-menu">
+        			    <li><a href="updateSelfUser.html">更改账号信息</a></li>
+        			    <li><a href="logout.html">注销登陆</a></li>
+        			    </ul>
+        			</li>
+                </ul> <!-- end header__nav -->
+        
+            </nav> <!-- end header__nav-wrap -->
+        
+            
+        
+        </header> <!-- end s-header -->
+
+
+        <!-- site content
+        ================================================== -->
+        <div class="s-content content">
+            <main class="row content__page">
+                
+                <section class="column large-full entry format-standard">
+
+                    <div class="media-wrap">
+                    </div>
+
+                    <div class="content__page-header">
+                        <h1 class="display-1">
+                        添加新用户
+                        </h1>
+                    </div> <!-- end content__page-header -->
+
+                    <form action="addUser.action" method="post" >
+                       
+                    用户学号:<input type="number" name="id"  /> <br/>
+                    用户密码:<input type="text" name="password"  /> <br/>
+                    用户姓名:<input type="text" name="name" /> <br/>
+                    联系方式:<input type="tel" name="tel" /> <br/>
+                    身份证号:<input type="number" name="idNum" /> <br/>
+                    电子邮箱:<input type="email" name="email" /> <br/>
+                    
+                    
+                    用户身份:<input type="radio" name="position" value="1"/>管理员 
+                    <input type="radio" name="position" value="0"/>普通用户 <br/>
+                    <input name="status" type="hidden" th:value="0"/> <br/>
+                    <button type="submit" >提交</button>
+                       
+                    </form>
+                </section>
+
+            </main>
+
+        </div> <!-- end s-content -->
+
+
+        <!-- footer
+        ================================================== -->
+        <footer class="s-footer footer">
+            <div class="row">
+                <div class="column large-full footer__content">
+                </div>
+            </div>
+
+            <div class="go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top"></a>
+            </div>
+        </footer>
+
+    </div> <!-- end s-wrap -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="asserts/js/jquery-3.2.1.min.js" th:src="@{/asserts/js/jquery-3.2.1.min.js}"></script>
+	<script src="asserts/js/plugins.js" th:src="@{/asserts/js/plugins.js}"></script>
+	<script src="asserts/js/main.js" th:src="@{/asserts/js/main.js}"></script>
+    
+</body>

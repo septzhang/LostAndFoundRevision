@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test.mapper.EmailtableMapper" >
+  <resultMap id="BaseResultMap" type="com.test.pojo.Emailtable" >
+    <id column="email_id" property="emailId" jdbcType="INTEGER" />
+    <result column="email_sender" property="emailSender" jdbcType="VARCHAR" />
+    <result column="email_addressee" property="emailAddressee" jdbcType="VARCHAR" />
+    <result column="email_status" property="emailStatus" jdbcType="TINYINT" />
+    <result column="email_info" property="emailInfo" jdbcType="VARCHAR" />
+    <result column="email_time" property="emailTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    email_id, email_sender, email_addressee, email_status, email_info, email_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.test.pojo.EmailtableExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from emailtable
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from emailtable
+    where email_id = #{emailId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from emailtable
+    where email_id = #{emailId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.test.pojo.EmailtableExample" >
+    delete from emailtable
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.test.pojo.Emailtable" >
+    insert into emailtable (email_id, email_sender, email_addressee, 
+      email_status, email_info, email_time
+      )
+    values (#{emailId,jdbcType=INTEGER}, #{emailSender,jdbcType=VARCHAR}, #{emailAddressee,jdbcType=VARCHAR}, 
+      #{emailStatus,jdbcType=TINYINT}, #{emailInfo,jdbcType=VARCHAR}, #{emailTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.test.pojo.Emailtable" >
+    insert into emailtable
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="emailId != null" >
+        email_id,
+      </if>
+      <if test="emailSender != null" >
+        email_sender,
+      </if>
+      <if test="emailAddressee != null" >
+        email_addressee,
+      </if>
+      <if test="emailStatus != null" >
+        email_status,
+      </if>
+      <if test="emailInfo != null" >
+        email_info,
+      </if>
+      <if test="emailTime != null" >
+        email_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="emailId != null" >
+        #{emailId,jdbcType=INTEGER},
+      </if>
+      <if test="emailSender != null" >
+        #{emailSender,jdbcType=VARCHAR},
+      </if>
+      <if test="emailAddressee != null" >
+        #{emailAddressee,jdbcType=VARCHAR},
+      </if>
+      <if test="emailStatus != null" >
+        #{emailStatus,jdbcType=TINYINT},
+      </if>
+      <if test="emailInfo != null" >
+        #{emailInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="emailTime != null" >
+        #{emailTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.test.pojo.EmailtableExample" resultType="java.lang.Integer" >
+    select count(*) from emailtable
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update emailtable
+    <set >
+      <if test="record.emailId != null" >
+        email_id = #{record.emailId,jdbcType=INTEGER},
+      </if>
+      <if test="record.emailSender != null" >
+        email_sender = #{record.emailSender,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emailAddressee != null" >
+        email_addressee = #{record.emailAddressee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emailStatus != null" >
+        email_status = #{record.emailStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.emailInfo != null" >
+        email_info = #{record.emailInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emailTime != null" >
+        email_time = #{record.emailTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update emailtable
+    set email_id = #{record.emailId,jdbcType=INTEGER},
+      email_sender = #{record.emailSender,jdbcType=VARCHAR},
+      email_addressee = #{record.emailAddressee,jdbcType=VARCHAR},
+      email_status = #{record.emailStatus,jdbcType=TINYINT},
+      email_info = #{record.emailInfo,jdbcType=VARCHAR},
+      email_time = #{record.emailTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.test.pojo.Emailtable" >
+    update emailtable
+    <set >
+      <if test="emailSender != null" >
+        email_sender = #{emailSender,jdbcType=VARCHAR},
+      </if>
+      <if test="emailAddressee != null" >
+        email_addressee = #{emailAddressee,jdbcType=VARCHAR},
+      </if>
+      <if test="emailStatus != null" >
+        email_status = #{emailStatus,jdbcType=TINYINT},
+      </if>
+      <if test="emailInfo != null" >
+        email_info = #{emailInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="emailTime != null" >
+        email_time = #{emailTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where email_id = #{emailId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.test.pojo.Emailtable" >
+    update emailtable
+    set email_sender = #{emailSender,jdbcType=VARCHAR},
+      email_addressee = #{emailAddressee,jdbcType=VARCHAR},
+      email_status = #{emailStatus,jdbcType=TINYINT},
+      email_info = #{emailInfo,jdbcType=VARCHAR},
+      email_time = #{emailTime,jdbcType=TIMESTAMP}
+    where email_id = #{emailId,jdbcType=INTEGER}
+  </update>
+</mapper>

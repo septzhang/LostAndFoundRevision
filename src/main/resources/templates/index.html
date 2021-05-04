@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>主页</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="asserts/css/base.css" th:herf="@{/asserts/css/base.css}">
+    <link rel="stylesheet" href="asserts/css/vendor.css" th:herf="@{/asserts/css/vendor.css}">
+    <link rel="stylesheet" href="asserts/css/main.css" th:herf="@{/asserts/css/main.css}">
+
+    <!-- script
+    ================================================== -->
+    <script src="asserts/js/modernizr.js" th:src="@{/asserts/js/modernizr.js}"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" th:herf="@{/apple-touch-icon.png}">
+    <link rel="icon" type="asserts/image/png" sizes="32x32" href="favicon-32x32.png" th:herf="@{/favicon-32x32.png}" >
+    <link rel="icon" type="asserts/image/png" sizes="16x16" href="favicon-16x16.png" th:herf="@{/favicon-16x16.png}">
+    <link rel="manifest" href="site.webmanifest" th:herf="@{/site.webmanifest}">
+	
+	<!-- css files -->
+	<link href="asserts/css/bootstrap.css" th:herf="@{webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}" rel="stylesheet" type="text/css"  /><!-- bootstrap css -->
+	<link href="asserts/css/font-awesome.min.css" th:herf="@{/asserts/css/font-awesome.min.css}" rel="stylesheet"><!-- fontawesome css -->
+	<!-- //css files -->
+	
+	<link href="asserts/css/css_slider.css" th:herf="@{/asserts/css/css_slider.css}" type="text/css" rel="stylesheet" media="all">
+	
+
+</head>
+
+<body>
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div id="top" class="s-wrap site-wrapper">
+		<div class="container" th:if="${user.getUserPosition()}">
+			<!-- nav -->
+			<nav class="py-md-4 py-3 d-lg-flex">
+				<!-- <label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+				<input type="checkbox" id="drop" /> -->
+				<ul class="menu ml-auto mt-1">
+					<li class=""><a href="listUser.html" th:href="@{/listUser.html}" ><font size="5" >查看用户</font></a></li>
+					<li class=""><a href="addUser.html" th:href="@{/addUser.html}" ><font size="5" >添加用户</font></a></li>
+				</ul>
+			</nav>
+			<!-- //nav -->
+		</div>
+        <!-- site header
+        ================================================== -->
+        <header class="s-header">
+            <div class="header__top">
+                <div class="header__logo">
+                    <a class="site-logo" href="index.html">
+                        <img src="asserts/images/logo.svg" th:src="@{asserts/images/logo.svg}" alt="Homepage">
+                    </a>
+                </div>
+            </div> <!-- end header__top -->
+
+            <nav class="header__nav-wrap" th:fragment="menu">
+
+                <ul class="header__nav">
+                    <li class="current"><a href="index.html" th:herf="@{/index.html}" title="">主页</a></li>
+					<li class="current"><a href="listA.html" th:herf="@{/listA.html}" title="">失物信息</a></li>
+					<li class="current"><a href="listB.html" th:herf="@{/listB.html}" title="">招领信息</a></li>
+					
+<!--                    <li class="has-children" >
+                        <a href="#0" title="">用户</a>
+                        <ul class="sub-menu">
+                        <li><a href="listUser.html" th:href="@{/listUser.html}">查看用户</a></li>
+                        <li><a href="addUser.html" th:href="@{/addUser.html}">添加用户</a></li>
+                        </ul>
+                    </li> -->
+					<li class="has-children">
+					    <a href="#0" title="">信息</a>
+					    <ul class="sub-menu">
+					    <li><a href="addGoods.html" th:href="@{/addGoods.html}">发布信息</a></li>
+					    <li><a href="listMyGoods.html" th:href="@{/listMyGoods.html}">我的发布</a></li>
+					    </ul>
+					</li>
+					<li class="has-children">
+					    <a href="#0" title="">留言板</a>
+					    <ul class="sub-menu">
+					    <li><a href="listContact.html" th:href="@{/listContact.html}">查看留言板</a></li>
+					    <li><a href="addContact.html" th:href="@{/addContact.html}">填写留言</a></li>
+					    </ul>
+					</li>
+					<li class="has-children">
+					    <a href="#0" title="">账号</a>
+					    <ul class="sub-menu">
+					    <li><a href="updateSelfUser.html">更改账号信息</a></li>
+					    <li><a href="logout.html">注销登陆</a></li>
+					    </ul>
+					</li>
+                </ul> <!-- end header__nav -->
+
+            </nav> <!-- end header__nav-wrap -->
+
+            
+
+        </header> <!-- end s-header -->
+		<div class="s-content">
+		    <div class="media-wrap">
+		        <div>
+		            <img src="../static/asserts/images/thumbs/indeximg/ideximg.jpg" srcset="asserts/images/thumbs/indeximg/ideximg.jpg 2000w, 
+		                      asserts/images/thumbs/indeximg/indeximg-1000.jpg 1000w, 
+		                      asserts/images/thumbs/indeximg/indeximg-500.jpg 500w" sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+		        </div>
+		    </div>
+		    <div class="masonry-wrap">
+		
+		        <div class="masonry" >
+					<h1 th:th:text="${user.getUserName()}"></h1>
+					<h1>欢迎使用失物招领系统!!!</h1>
+					<div id="" class="container py-lg-4 py-sm-3" th:each="bulletin:${blist}">
+					<h3 class="heading text-capitalize text-center"  th:text="'公告:'+${bulletin} " >公告</h3>
+					</div>
+					
+		            <div class="grid-sizer"></div>
+		             <!-- end article -->
+					 <h2>你的消息</h2>
+					 <table align="center" border="1" cellspacing="0">
+					 	<tr>
+					 		<td>邮件id</td>
+					 		<td>发送时间</td>
+					 		<td>寄件用户</td>
+					 		<td>邮件内容</td>
+					 		<td>删除</td>
+					 		
+					 	</tr>
+					 	<tr th:each="e:${elist}">
+					 		<td th:text="${e.getEmailId()}">id</td>
+					 		<td th:text="${e.getEmailTime()}">id</td>
+					 		<td th:text="${e.getEmailSender()}">name</td>
+					 		<td th:text="${e.getEmailInfo()}" >name</td>
+					 		<td><a th:href="@{/deleteEmail(id=${e.getEmailId()})}">删除</a></td>
+					 		
+					 	</tr>
+					 </table>
+		           		           		           
+		        </div> <!-- end masonry -->
+		
+		    </div> <!-- end masonry-wrap -->
+		</div> <!-- end s-content -->
+		
+		
+		
+
+    </div>
+	<script src="asserts/js/jquery-3.2.1.min.js" th:src="@{/asserts/js/jquery-3.2.1.min.js}"></script>
+	<script src="asserts/js/plugins.js" th:src="@{/asserts/js/plugins.js}"></script>
+	<script src="asserts/js/main.js" th:src="@{/asserts/js/main.js}"></script>
+</body>
+
+</html>

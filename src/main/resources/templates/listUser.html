@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>发表留言</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+   <link rel="stylesheet" href="asserts/css/base.css" th:herf="@{/asserts/css/base.css}">
+   <link rel="stylesheet" href="asserts/css/vendor.css" th:herf="@{/asserts/css/vendor.css}">
+   <link rel="stylesheet" href="asserts/css/main.css" th:herf="@{/asserts/css/main.css}">
+   
+    <!-- script
+    ================================================== -->
+    <script src="asserts/js/modernizr.js" th:src="@{/asserts/js/modernizr.js}"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" th:herf="@{/apple-touch-icon.png}">
+    <link rel="icon" type="asserts/image/png" sizes="32x32" href="favicon-32x32.png" th:herf="@{/favicon-32x32.png}" >
+    <link rel="icon" type="asserts/image/png" sizes="16x16" href="favicon-16x16.png" th:herf="@{/favicon-16x16.png}">
+    <link rel="manifest" href="site.webmanifest" th:herf="@{/site.webmanifest}">
+	
+</head>
+
+<body class="ss-bg-white">
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div id="top" class="s-wrap site-wrapper">
+
+        <!-- site header
+        ================================================== -->
+        <header class="s-header header">
+
+ 
+            <nav class="header__nav-wrap">
+
+                <ul class="header__nav" th:replace="index::menu">
+                    <li><a href="index.html" title="">Home</a></li>
+                    <li class="has-children">
+                        <a href="#0" title="">Categories</a>
+                        <ul class="sub-menu">
+                        <li><a href="category.html">Lifestyle</a></li>
+                        <li><a href="category.html">Health</a></li>
+                        <li><a href="category.html">Family</a></li>
+                        <li><a href="category.html">Management</a></li>
+                        <li><a href="category.html">Travel</a></li>
+                        <li><a href="category.html">Work</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-children">
+                        <a href="#0" title="">Blog</a>
+                        <ul class="sub-menu">
+                        <li><a href="single-video.html">Video Post</a></li>
+                        <li><a href="single-audio.html">Audio Post</a></li>
+                        <li><a href="single-gallery.html">Gallery Post</a></li>
+                        <li><a href="single-standard.html">Standard Post</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="styles.html" title="">Styles</a></li>
+                    <li><a href="page-about.html" title="">About</a></li>
+                    <li class="current"><a href="page-contact.html" title="">Contact</a></li>
+                </ul> <!-- end header__nav -->
+
+                <ul class="header__social">
+                    <li class="ss-facebook">
+                        <a href="https://facebook.com/">
+                            <span class="screen-reader-text">Facebook</span>
+                        </a>
+                    </li>
+                    <li class="ss-twitter">
+                        <a href="#0">
+                            <span class="screen-reader-text">Twitter</span>
+                        </a>
+                    </li>
+                    <li class="ss-dribbble">
+                        <a href="#0">
+                            <span class="screen-reader-text">Instagram</span>
+                        </a>
+                    </li>
+                    <li class="ss-behance">
+                        <a href="#0">
+                            <span class="screen-reader-text">Behance</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav> <!-- end header__nav-wrap -->
+
+        </header> <!-- end s-header -->
+
+
+        <!-- site content
+        ================================================== -->
+        <div class="s-content content">
+            <main class="row content__page">
+                
+                <section class="column large-full entry format-standard">
+					
+					<div class="media-wrap">
+					    <div>
+					        <img src="asserts/images/thumbs/contact/contact-1000.jpg" srcset="asserts/images/thumbs/contact/contact-2000.jpg 2000w, 
+					                  asserts/images/thumbs/contact/contact-1000.jpg 1000w, 
+					                  asserts/images/thumbs/contact/contact-500.jpg 500w" sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+					    </div>
+					</div>
+					
+					
+                    <div class="media-wrap">
+                    </div>
+
+                    <div class="content__page-header">
+                        <h1 class="display-1">
+                        查看用户
+                        </h1>
+                    </div> <!-- end content__page-header -->
+					
+                    <table style="font-size:13px;"  border="1" cellspacing="0" width="50%">
+                    	<tr>
+                    		<td>id/学号</td>
+                    		<td>用户姓名</td>
+                    		<td>电话号码</td>
+                    		<td>身份证号</td>
+                    		<td>账号状态</td>
+                    		<td>用户身份</td>
+                    		<td>用户邮箱</td>
+                    		<td>编辑</td>
+                    		<td>状态</td>
+                    		<td>警告</td>
+                    		<td>删除</td>
+                    	</tr>
+                    	<tr th:each="user:${users}">
+                    		<td th:text="${user.getUserId()}">id</td>
+                    		<td th:text="${user.getUserName()}">name</td>
+                    		<td th:text="${user.getUserTel()}">name</td>
+                    		<td th:text="${user.getUserIdnum()}">name</td>
+                    		<td th:text="${user.getUserStatus()}?'封号中':'正常'" >name</td>
+                    		<td th:text="${user.getUserPosition()}?'管理员':'普通用户'">name</td>
+                    		<td th:text="${user.getUserEmail()}">name</td>
+                    		
+                    		<td><a th:href="@{/editUser(id=${user.getUserId()})}">编辑</a></td>
+                    		<td><a th:href="@{/killUser(id=${user.getUserId()})}" th:text="${user.getUserStatus()}?'解封':'封号'" >封号</a></td>
+                    		<td><a th:href="@{/warnUser(id=${user.getUserId()})}">警告</a></td>
+                    		<td><a th:href="@{/deleteUser(id=${user.getUserId()})}">删除</a></td>
+                    		
+                    	</tr>
+                    </table>
+                </section>
+
+            </main>
+
+        </div> <!-- end s-content -->
+
+
+        <!-- footer
+        ================================================== -->
+        <footer class="s-footer footer">
+            <div class="row">
+                <div class="column large-full footer__content">
+                </div>
+            </div>
+
+            <div class="go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top"></a>
+            </div>
+        </footer>
+
+    </div> <!-- end s-wrap -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="asserts/js/jquery-3.2.1.min.js" th:src="@{/asserts/js/jquery-3.2.1.min.js}"></script>
+	<script src="asserts/js/plugins.js" th:src="@{/asserts/js/plugins.js}"></script>
+	<script src="asserts/js/main.js" th:src="@{/asserts/js/main.js}"></script>
+    
+</body>

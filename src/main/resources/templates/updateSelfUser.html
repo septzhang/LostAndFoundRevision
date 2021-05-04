@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>发表留言</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+   <link rel="stylesheet" href="asserts/css/base.css" th:herf="@{/asserts/css/base.css}">
+   <link rel="stylesheet" href="asserts/css/vendor.css" th:herf="@{/asserts/css/vendor.css}">
+   <link rel="stylesheet" href="asserts/css/main.css" th:herf="@{/asserts/css/main.css}">
+   
+    <!-- script
+    ================================================== -->
+    <script src="asserts/js/modernizr.js" th:src="@{/asserts/js/modernizr.js}"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" th:herf="@{/apple-touch-icon.png}">
+    <link rel="icon" type="asserts/image/png" sizes="32x32" href="favicon-32x32.png" th:herf="@{/favicon-32x32.png}" >
+    <link rel="icon" type="asserts/image/png" sizes="16x16" href="favicon-16x16.png" th:herf="@{/favicon-16x16.png}">
+    <link rel="manifest" href="site.webmanifest" th:herf="@{/site.webmanifest}">
+	
+</head>
+
+<body class="ss-bg-white">
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div id="top" class="s-wrap site-wrapper">
+
+        <!-- site header
+        ================================================== -->
+        <header class="s-header header">
+
+ 
+            <nav class="header__nav-wrap">
+
+                <ul class="header__nav" th:replace="index::menu">
+                    <li><a href="index.html" title="">Home</a></li>
+                    <li class="has-children">
+                        <a href="#0" title="">Categories</a>
+                        <ul class="sub-menu">
+                        <li><a href="category.html">Lifestyle</a></li>
+                        <li><a href="category.html">Health</a></li>
+                        <li><a href="category.html">Family</a></li>
+                        <li><a href="category.html">Management</a></li>
+                        <li><a href="category.html">Travel</a></li>
+                        <li><a href="category.html">Work</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-children">
+                        <a href="#0" title="">Blog</a>
+                        <ul class="sub-menu">
+                        <li><a href="single-video.html">Video Post</a></li>
+                        <li><a href="single-audio.html">Audio Post</a></li>
+                        <li><a href="single-gallery.html">Gallery Post</a></li>
+                        <li><a href="single-standard.html">Standard Post</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="styles.html" title="">Styles</a></li>
+                    <li><a href="page-about.html" title="">About</a></li>
+                    <li class="current"><a href="page-contact.html" title="">Contact</a></li>
+                </ul> <!-- end header__nav -->
+
+
+            </nav> <!-- end header__nav-wrap -->
+
+        </header> <!-- end s-header -->
+
+
+        <!-- site content
+        ================================================== -->
+        <div class="s-content content">
+            <main class="row content__page">
+                
+                <section class="column large-full entry format-standard">
+					
+					<div class="media-wrap">
+					    <div>
+					        <img src="asserts/images/thumbs/user/user-1000.jpg" srcset="asserts/images/thumbs/user/user-2000.jpg 2000w, 
+					                  asserts/images/thumbs/user/user-1000.jpg 1000w, 
+					                  asserts/images/thumbs/user/user-500.jpg 500w" sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+					    </div>
+					</div>
+					
+                    <div class="media-wrap">
+                    </div>
+
+                    <div class="content__page-header">
+                        <h1 class="display-1">
+                        更新用户信息
+                        </h1>
+                    </div> <!-- end content__page-header -->
+
+                    <form action="updateSelfUser.action" method="post" >
+                       
+                    用户姓名:<input name="name" th:value="${user.getUserName()}"/> <br/>
+                    联系方式:<input name="tel" th:value="${user.getUserTel()}"/> <br/>
+                    身份证号:<input name="idNum" th:value="${user.getUserIdnum()}"/> <br/>
+                    电子邮箱:<input name="email" th:value="${user.getUserEmail()}"/> <br/>
+                    更新密码:<input name="password"  th:value="${user.getUserPassword()}"/>
+                    
+                    <input name="id" type="hidden" th:value="${user.getUserId()}"/>
+                    <input name="position" type="hidden" th:value="${user.getUserPosition()}"/> <br/>
+                    <input name="status" type="hidden" th:value="${user.getUserStatus()}"/> <br/>
+                    <button type="submit" >提交更改</button>
+                       
+                    </form>
+                </section>
+
+            </main>
+
+        </div> <!-- end s-content -->
+
+
+        <!-- footer
+        ================================================== -->
+        <footer class="s-footer footer">
+            <div class="row">
+                <div class="column large-full footer__content">
+                </div>
+            </div>
+
+            <div class="go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top"></a>
+            </div>
+        </footer>
+
+    </div> <!-- end s-wrap -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="asserts/js/jquery-3.2.1.min.js" th:src="@{/asserts/js/jquery-3.2.1.min.js}"></script>
+	<script src="asserts/js/plugins.js" th:src="@{/asserts/js/plugins.js}"></script>
+	<script src="asserts/js/main.js" th:src="@{/asserts/js/main.js}"></script>
+    
+</body>
