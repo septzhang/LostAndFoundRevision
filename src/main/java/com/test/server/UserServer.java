@@ -56,8 +56,8 @@ public class UserServer {
 	public int loginCheck(Usertable usertable) {
 		UsertableExample uExample = new UsertableExample();
 		uExample.createCriteria().andUserIdEqualTo(usertable.getUserId());
-		List<Usertable> list  = uMapper.selectByExample(uExample);
 		System.out.println(usertable.getUserId()+"-------"+usertable.getUserPassword());
+		List<Usertable> list  = uMapper.selectByExample(uExample);
 		if (list.size()>0) {
 			System.out.println(list.get(0).getUserPassword());
 			System.out.println(encryptHex(usertable.getUserPassword(), keyword));
@@ -124,14 +124,14 @@ public class UserServer {
 	}
 	/**
 	 * 删除用户
-	 * @param userid
+	 * @param
 	 */
 	public void deleteUser(Long userId) {
 		uMapper.deleteByPrimaryKey(userId);
 	}
 	/**
 	 * 添加用户信息
-	 * @param newUser
+	 * @param
 	 */
 	public void addUser(Usertable user) {
 		user =encryptUser(user);
@@ -196,7 +196,7 @@ public class UserServer {
 	
 	/**
 	 * 列出所有的失物招领信息
-	 * @param usertable
+	 * @param
 	 * @return 
 	 */
 	public List<Goodstable> listGoods() {
