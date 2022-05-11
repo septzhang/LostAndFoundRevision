@@ -1,0 +1,14 @@
+INSERT INTO `emailtable`(`email_id`, `email_sender`, `email_addressee`, `email_status`, `email_info`, `email_time`) VALUES (14, '123132@email.com', 'all', NULL, '这个网页真好看.我超级喜欢', '2020-03-20 08:02:04');
+INSERT INTO `emailtable`(`email_id`, `email_sender`, `email_addressee`, `email_status`, `email_info`, `email_time`) VALUES (15, '1231321', 'all', NULL, '大家好,初来乍到', '2020-03-20 08:03:59');
+INSERT INTO `emailtable`(`email_id`, `email_sender`, `email_addressee`, `email_status`, `email_info`, `email_time`) VALUES (16, '112233', '12222', NULL, '您的账户因违章违规,特发警告!下次讲直接封号!', '2020-03-20 14:23:35');
+INSERT INTO `emailtable`(`email_id`, `email_sender`, `email_addressee`, `email_status`, `email_info`, `email_time`) VALUES (17, '12222', '12222', NULL, '用户举报寻物招领(id:23)存在违规违章行为,请管理员核实!!', '2020-03-28 00:59:44');
+INSERT INTO `emailtable`(`email_id`, `email_sender`, `email_addressee`, `email_status`, `email_info`, `email_time`) VALUES (20, '12222', '19981212', NULL, '用户举报寻物招领(id:26)存在违规违章行为,请管理员核实!!', '2020-03-28 01:14:26');
+INSERT INTO `emailtable`(`email_id`, `email_sender`, `email_addressee`, `email_status`, `email_info`, `email_time`) VALUES (21, '23', '12222', NULL, '用户12222对您发布的信息23感兴趣,如有意向,请尽快联系!!', '2020-03-28 01:14:33');
+INSERT INTO `emailtable`(`email_id`, `email_sender`, `email_addressee`, `email_status`, `email_info`, `email_time`) VALUES (22, '34', '12222', NULL, '用户12222对您发布的信息34感兴趣,如有意向,请尽快联系!!', '2020-04-02 17:38:21');
+INSERT INTO `emailtable`(`email_id`, `email_sender`, `email_addressee`, `email_status`, `email_info`, `email_time`) VALUES (23, '35', '12222', NULL, '用户12222对您发布的信息35感兴趣,如有意向,请尽快联系!!', '2020-04-03 01:50:56');
+INSERT INTO `emailtable`(`email_id`, `email_sender`, `email_addressee`, `email_status`, `email_info`, `email_time`) VALUES (24, '35', '12222', NULL, '用户12222对您发布的信息35感兴趣,如有意向,请尽快联系!!', '2020-04-03 07:32:28');
+INSERT INTO `emailtable`(`email_id`, `email_sender`, `email_addressee`, `email_status`, `email_info`, `email_time`) VALUES (26, '12222', '12222', NULL, '用户12222对您发布的信息36感兴趣,如有意向,请尽快联系!!', '2020-04-03 07:47:56');
+INSERT INTO `emailtable`(`email_id`, `email_sender`, `email_addressee`, `email_status`, `email_info`, `email_time`) VALUES (27, '21313', 'all', NULL, '你哦撒', '2020-04-03 07:59:29');
+INSERT INTO `emailtable`(`email_id`, `email_sender`, `email_addressee`, `email_status`, `email_info`, `email_time`) VALUES (28, '1001100', '12222', NULL, '您的账户因违章违规,特发警告!下次讲直接封号!', '2020-04-03 11:45:07');
+INSERT INTO `emailtable`(`email_id`, `email_sender`, `email_addressee`, `email_status`, `email_info`, `email_time`) VALUES (29, '1001100', '12222', NULL, '您的账户因违章违规,特发警告!下次讲直接封号!', '2020-04-03 11:45:54');
+INSERT INTO `emailtable`(`email_id`, `email_sender`, `email_addressee`, `email_status`, `email_info`, `email_time`) VALUES (30, '6879', 'all', NULL, '笔', '2020-04-03 12:10:40');
